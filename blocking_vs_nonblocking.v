@@ -10,3 +10,10 @@
     if(we) mem[a] = di;
     do = mem[a];
   end
+
+// The <= is a "non-blocking assignment"
+// Which allows our lines of verilog assignment code to happen simultaneously. 
+  always_ff @(posedge clk) begin
+    if(we) mem[a] <= di;
+    do <= mem[a];
+  end
